@@ -9,9 +9,10 @@
 
 class attackerToOne : public attacker{
 public:
-    class weaponAttackerToOne : public weapon{
+    class skillAttackerToOne : public skill{
         int attackValue;
     };
+    attackerToOne();
 };
 
 #endif //CHARACTERS_QT_ATTACKERTOONE_H

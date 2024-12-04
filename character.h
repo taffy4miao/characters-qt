@@ -10,8 +10,9 @@
 
 int currentNum = 1;
 
-const int attackerToThreeNum = 1;
-const int attackerWithKnifeNum = 2;
+const int attackerToAllNum = 1;
+const int attackerToTwoNum = 2;
+
 
 
 class character{
@@ -20,11 +21,12 @@ protected:
     std::string name;
     int level;
     int hp;
-    class weapon{
+    class skill{
         std::string name;
         int level;
         // 加成
         int hp;
+        virtual void skillLevelUp(int targetLevel) = 0;
     };
 public:
     virtual void levelUp(int targetLevel) = 0;

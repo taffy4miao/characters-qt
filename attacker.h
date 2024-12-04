@@ -9,6 +9,10 @@
 class attacker :public character{
 protected:
     int attackValue;
+    class skillAttack : public skill{
+    protected:
+        int attackValue;
+    };
 };
 
 #endif //CHARACTERS_QT_ATTACKER_H
