@@ -11,7 +11,7 @@ protected:
     int attackValue;
     class skillAttack : public skill{
     protected:
-        int attackValue;
+        int skillAttackValue;
     };
 };
 

@@ -9,7 +9,7 @@ attackerToAll::attackerToAll(std::string name, int hp, int attackValue,skillAtta
     this->hp = hp;
     this->attackValue = attackValue;
     this->num = currentNum++;
-    this->level = 0;
+    this->level = 1;
     this->skill = std::move(skill);
 }
 

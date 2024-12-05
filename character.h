@@ -11,7 +11,8 @@
 int currentNum = 1;
 
 const int attackerToAllNum = 1;
-const int attackerToTwoNum = 2;
+const int attackerToOneNum = 2;
+const int assistanceBuffNum = 3;
 
 
 

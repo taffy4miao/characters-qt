@@ -9,7 +9,10 @@
 
 class assistance : public character{
 protected:
+    int assistantValue;
+    class skillAssistant : public skill{
 
+    };
 };
 
 #endif //CHARACTERS_QT_ASSISTANCE_H
