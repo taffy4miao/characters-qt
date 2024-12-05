@@ -7,6 +7,12 @@
 
 #include <string>
 #include <utility>
+#include <vector>
+#include <memory>
+#include <unordered_map>
+#include <typeindex>
+#include <typeinfo>
+#include <stdexcept>
 
 int currentNum = 1;
 
@@ -30,6 +36,7 @@ protected:
         virtual void skillLevelUp(int targetLevel) = 0;
     };
 public:
+    int getNum() const;
     virtual void levelUp(int targetLevel) = 0;
     virtual void displayInfo() = 0;
     virtual int getType() = 0;
