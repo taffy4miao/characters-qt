@@ -5,3 +5,6 @@
 #include "character.h"
 
 
+int character::getNum() const {
+    return num;
+}
