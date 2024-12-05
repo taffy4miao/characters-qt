@@ -26,7 +26,7 @@ protected:
         std::string name;
         int level;
         // 加成
-        int hp;
+        int value;
         virtual void skillLevelUp(int targetLevel) = 0;
     };
 public:

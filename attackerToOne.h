@@ -8,11 +8,16 @@
 #include "attacker.h"
 
 class attackerToOne : public attacker{
-public:
     class skillAttackerToOne : public skill{
-        int attackValue;
+    public:
+        void skillLevelUp(int targetLevel) override;
     };
-    attackerToOne();
+    skillAttackerToOne skill;
+public:
+    attackerToOne(std::string name, int hp, int attackValue,skillAttackerToOne skill);
+    void levelUp(int targetLevel) override;
+    void displayInfo() override;
+    int getType() override;
 };
 
 #endif //CHARACTERS_QT_ATTACKERTOONE_H
