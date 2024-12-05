@@ -25,15 +25,37 @@ void charactersManager::addCharacter(std::shared_ptr<T> specificCharacter) {
     characters.push_back(std::move(specificCharacter));
 }
 
-inline void charactersManager::findByNum(int targetNum) {
+void charactersManager::findByNum(int targetNum) {
     idMap[targetNum]->displayInfo();
+    command c("NUM",std::to_string(targetNum));
+    commandHistory.push_back(c);
+    if(commandHistory.size() > 5)
+        commandHistory.erase(commandHistory.begin());
 }
 
-inline void charactersManager::findByName(const std::string& targetName) {
+void charactersManager::findByName(const std::string& targetName) {
     nameMap[targetName]->displayInfo();
+    command c("NAME",targetName);
+    commandHistory.push_back(c);
+    if(commandHistory.size() > 5)
+        commandHistory.erase(commandHistory.begin());
 }
 
+void charactersManager::displayHistoryCommands(std::vector<command> commandVector) {
 
-charactersManager::command::command(std::string commandType) {
+}
+
+void charactersManager::findByType(const std::string& type) {
+    auto it = typeMap.find(std::type_index(typeid(type)));
+    if (it != typeMap.end()) {
+        for (character* c : it->second) {
+            c->displayInfo();
+        }
+    }
+}
+
+charactersManager::command::command(std::string commandType,std::string commandName) {
     this->commandType = std::move(commandType);
+    this->commandName = std::move(commandName);
 }
+

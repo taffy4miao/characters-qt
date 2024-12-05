@@ -13,22 +13,29 @@
 #include "healer.h"
 
 class charactersManager{
+    // 查询通过map实现
 private:
     std::vector<std::shared_ptr<character>> characters;
     std::unordered_map<int, character*> idMap;
     std::unordered_map<std::string, character*> nameMap;
     std::unordered_map<std::type_index, std::vector<character*>> typeMap;
     class command{
-        const std::unordered_map<std::string,int> commandTypeMap = {{"NUM",1},{"NAME",2},{"TYPE",3}};
-        std::string commandType;
-        command(std::string commandType);
+        std::unordered_map<std::string,int> commandTypeMap = {{"NUM",1},{"NAME",2},{"TYPE",3}};
+        std::string commandType;    // 角色类型
+        std::string commandName;    // 角色名
+    public:
+        command(std::string commandType,std::string commandName);
     };
+    std::vector<command> commandHistory;
 public:
     template<typename T>
     void addCharacter(std::shared_ptr<T> specificCharacter);
 
-    inline void findByNum(int targetNum);
-    inline void findByName(const std::string& targetName);
+    void findByNum(int targetNum);
+    void findByName(const std::string& targetName);
+    void findByType(const std::string& type);
+
+    void displayHistoryCommands(std::vector<command> commandVector);
 
 };
 
