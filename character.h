@@ -14,7 +14,7 @@
 #include <typeinfo>
 #include <stdexcept>
 
-int currentNum = 1;
+extern int currentNum;
 
 const int attackerToAllNum = 1;
 const int attackerToOneNum = 2;
