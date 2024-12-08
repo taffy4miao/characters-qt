@@ -18,9 +18,9 @@ extern int currentNum;
 
 const int attackerToAllNum = 1;
 const int attackerToOneNum = 2;
-const int assistanceBuffNum = 3;
-
-
+const int assistantBuffNum = 3;
+const int assistantDebuffNum = 4;
+const int healerNum = 5;
 
 class character{
 protected:
