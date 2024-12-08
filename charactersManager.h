@@ -8,8 +8,8 @@
 
 #include "attackerToOne.h"
 #include "attackerToAll.h"
-#include "assistanceBuff.h"
-#include "assistanceDebuff.h"
+#include "assistantBuff.h"
+#include "assistantDebuff.h"
 #include "healer.h"
 
 class charactersManager{
