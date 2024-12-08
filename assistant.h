@@ -2,12 +2,12 @@
 // Created by yinxi on 2024/12/4.
 //
 
-#ifndef CHARACTERS_QT_ASSISTANCE_H
-#define CHARACTERS_QT_ASSISTANCE_H
+#ifndef CHARACTERS_QT_ASSISTANT_H
+#define CHARACTERS_QT_ASSISTANT_H
 
 #include "character.h"
 
-class assistance : public character{
+class assistant : public character{
 protected:
     int assistantValue;
     class skillAssistant : public skill{
@@ -15,4 +15,4 @@ protected:
     };
 };
 
-#endif //CHARACTERS_QT_ASSISTANCE_H
+#endif //CHARACTERS_QT_ASSISTANT_H
