@@ -11,7 +11,8 @@ class assistant : public character{
 protected:
     int assistantValue;
     class skillAssistant : public skill{
-
+    protected:
+        int skillAssistantValue;
     };
 };
 

@@ -4,8 +4,6 @@
 
 #include "attackerToOne.h"
 
-#include <utility>
-
 attackerToOne::attackerToOne(std::string name, int hp, int attackValue, std::string skillName,int skillValue) {
     this->name = std::move(name);
     this->hp = hp;
