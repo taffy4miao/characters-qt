@@ -29,10 +29,11 @@ protected:
     int level;
     int hp;
     class skill{
+    protected:
         std::string name;
         int level;
         // 加成
-        int value;
+        //int value;
         virtual void skillLevelUp(int targetLevel) = 0;
     };
 public:
