@@ -4,13 +4,14 @@
 
 #include "attackerToAll.h"
 
-attackerToAll::attackerToAll(std::string name, int hp, int attackValue,skillAttackerToAll skill){
+attackerToAll::attackerToAll(std::string name, int hp, int attackValue,std::string skillName,int skillValue){
     this->name = std::move(name);
     this->hp = hp;
     this->attackValue = attackValue;
     this->num = currentNum++;
     this->level = 1;
-    this->skill = std::move(skill);
+    skillAttackerToAll s(std::move(skillName),skillValue);
+    this->skill = s;
 }
 
 void attackerToAll::levelUp(int targetLevel) {
@@ -27,4 +28,10 @@ int attackerToAll::getType() {
 
 void attackerToAll::skillAttackerToAll::skillLevelUp(int targetLevel) {
 
+}
+
+attackerToAll::skillAttackerToAll::skillAttackerToAll(std::string name,int value) {
+    this->name = std::move(name);
+    this->level = 0;
+    this->skillAttackValue = value;
 }
