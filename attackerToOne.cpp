@@ -34,6 +34,6 @@ void attackerToOne::skillAttackerToOne::skillLevelUp(int targetLevel) {
 
 attackerToOne::skillAttackerToOne::skillAttackerToOne(std::string name, int value) {
     this->name = std::move(name);
-    this->level = 0;
+    this->level = 1;
     this->skillAttackValue = value;
 }
