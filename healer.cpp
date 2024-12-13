@@ -8,7 +8,7 @@ void healer::levelUp(int targetLevel) {
 
 }
 
-void healer::displayInfo() {
+void healer::displayInfo(int targetWidget) {
 
 }
 
