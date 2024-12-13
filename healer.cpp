@@ -27,7 +27,9 @@ healer::healer(std::string name, int hp, int healValue, std::string skillName, i
 }
 
 healer::skillHeal::skillHeal(std::string name, int value) {
-
+    this->name = std::move(name);
+    this->level = 1;
+    this->healValue = value;
 }
 
 void healer::skillHeal::skillLevelUp(int targetLevel) {

@@ -20,6 +20,7 @@ private:
         skillHeal(std::string name,int value);
         void skillLevelUp(int targetLevel) override;
     };
+    skillHeal skill;
 public:
     healer(std::string name,int hp,int healValue,std::string skillName,int skillValue);
     void levelUp(int targetLevel) override;
