@@ -23,7 +23,7 @@ void charactersManager::addCharacter(std::shared_ptr<T> specificCharacter) {
 }
 
 void charactersManager::findByNum(int targetNum) {
-    idMap[targetNum]->displayInfo();
+    idMap[targetNum]->displayInfo(0);
     command c("NUM",std::to_string(targetNum));
     commandHistory.push_back(c);
     if(commandHistory.size() > 5)
@@ -31,7 +31,7 @@ void charactersManager::findByNum(int targetNum) {
 }
 
 void charactersManager::findByName(const std::string& targetName) {
-    nameMap[targetName]->displayInfo();
+    nameMap[targetName]->displayInfo(0);
     command c("NAME",targetName);
     commandHistory.push_back(c);
     if(commandHistory.size() > 5)
@@ -45,10 +45,27 @@ void charactersManager::displayHistoryCommands(std::vector<command> commandVecto
 void charactersManager::findByType(const std::string& type) {
     auto it = typeMap.find(std::type_index(typeid(type)));
     if (it != typeMap.end()) {
-        for (character* c : it->second) {
-            c->displayInfo();
-        }
+        characterVector = std::make_unique<std::vector<std::shared_ptr<character>>>(it->second);
+        displayCharacterVector(1);
+        currentPage = 1;
     }
+    else throw std::runtime_error("未找到指定类型");
+}
+
+void charactersManager::displayCharacterVector(int targetPage) {
+    int characterNum = characterVector->size();
+    int pageNum = (characterNum + pageSize - 1) / pageSize;
+
+    //TODO:更改为修改对应label
+    //std::cout << "当前页面: " << currentPage << "/" << pageNum << std::endl;
+
+    int startIndex = (currentPage - 1) * pageSize;
+    int endIndex = std::min(startIndex + pageSize, characterNum); // 剩余角色可能不满一页
+    for(int i=startIndex;i<endIndex;i++){
+        characterVector->at(i)->displayInfo(startIndex % pageSize); // 在对应位置展示对应序号的角色
+    }
+
+    //TODO:在槽函数中通过不同的targetPage实现翻页
 }
 
 charactersManager::command::command(std::string commandType,std::string commandName) {

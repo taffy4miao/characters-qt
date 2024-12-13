@@ -27,6 +27,10 @@ private:
         command(std::string commandType,std::string commandName);
     };
     std::list<command> commandHistory;
+    void displayCharacterVector(int targetPage);
+    int currentPage = 1;
+    const int pageSize = 4;
+    std::unique_ptr<std::vector<std::shared_ptr<character>>> characterVector;
 public:
     template<typename T>
     void addCharacter(std::shared_ptr<T> specificCharacter);

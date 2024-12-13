@@ -15,7 +15,7 @@
 #include <stdexcept>
 #include <list>
 
-extern int currentNum;
+extern int currentNum; // 角色编号
 
 const int attackerToAllNum = 1;
 const int attackerToOneNum = 2;
@@ -40,7 +40,7 @@ protected:
 public:
     int getNum() const;
     virtual void levelUp(int targetLevel) = 0;
-    virtual void displayInfo() = 0;
+    virtual void displayInfo(int targetWidget) = 0;
     virtual int getType() = 0;
 };
 
