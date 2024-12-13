@@ -17,12 +17,11 @@ void charactersManager::addCharacter(std::shared_ptr<T> specificCharacter) {
         throw std::runtime_error("Character with this ID or name already exists");
     }
 
-    T* rawPtr = specificCharacter.get();
-    idMap[id] = rawPtr;
-    nameMap[name] = rawPtr;
-    typeMap[std::type_index(typeid(T))].push_back(rawPtr);
+    idMap[id] = specificCharacter;
+    nameMap[name] = specificCharacter;
+    typeMap[std::type_index(typeid(T))].push_back(specificCharacter);
 
-    characters.push_back(std::move(specificCharacter));
+    characters.push_back(specificCharacter);
 }
 
 void charactersManager::findByNum(int targetNum) {

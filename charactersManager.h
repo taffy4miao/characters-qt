@@ -16,9 +16,9 @@ class charactersManager{
     // 查询通过map实现
 private:
     std::vector<std::shared_ptr<character>> characters;
-    std::unordered_map<int, character*> idMap;
-    std::unordered_map<std::string, character*> nameMap;
-    std::unordered_map<std::type_index, std::vector<character*>> typeMap;
+    std::unordered_map<int, std::shared_ptr<character>> idMap;
+    std::unordered_map<std::string, std::shared_ptr<character>> nameMap;
+    std::unordered_map<std::type_index, std::vector<std::shared_ptr<character>>> typeMap;
     class command{
         std::unordered_map<std::string,int> commandTypeMap = {{"NUM",1},{"NAME",2},{"TYPE",3}};
         std::string commandType;    // 角色类型
