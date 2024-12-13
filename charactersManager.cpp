@@ -46,13 +46,18 @@ void charactersManager::findByType(const std::string& type) {
     auto it = typeMap.find(std::type_index(typeid(type)));
     if (it != typeMap.end()) {
         characterVector = std::make_unique<std::vector<std::shared_ptr<character>>>(it->second);
-        displayCharacterVector(1);
+        displayCharacterVector();
         currentPage = 1;
+
+        command c("TYPE",type);
+        commandHistory.push_back(c);
+        if(commandHistory.size() > 5)
+            commandHistory.erase(commandHistory.begin());
     }
     else throw std::runtime_error("未找到指定类型");
 }
 
-void charactersManager::displayCharacterVector(int targetPage) {
+void charactersManager::displayCharacterVector() {
     int characterNum = characterVector->size();
     int pageNum = (characterNum + pageSize - 1) / pageSize;
 
@@ -65,7 +70,23 @@ void charactersManager::displayCharacterVector(int targetPage) {
         characterVector->at(i)->displayInfo(startIndex % pageSize); // 在对应位置展示对应序号的角色
     }
 
-    //TODO:在槽函数中通过不同的targetPage实现翻页
+    //TODO:在槽函数中通过++currentPage或--currentPage实现边界检查和翻页
+}
+
+void charactersManager::searchByHistoryCommand(charactersManager::command c) {
+    switch(c.commandTypeMap[c.commandType]){
+        case 1: // Num
+            findByNum(atoi(c.commandName.c_str()));
+            break;
+        case 2: // Name
+            findByName(c.commandName);
+            break;
+        case 3:
+            findByType(c.commandName);
+            break;
+        default:
+            throw std::runtime_error("不合法的请求");
+    }
 }
 
 charactersManager::command::command(std::string commandType,std::string commandName) {

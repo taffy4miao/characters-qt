@@ -15,22 +15,23 @@
 class charactersManager{
     // 查询通过map实现
 private:
+    class command{
+    public:
+        std::unordered_map<std::string,int> commandTypeMap = {{"NUM",1},{"NAME",2},{"TYPE",3}};
+        std::string commandType;    // 请求类型
+        std::string commandName;    // 请求内容
+        command(std::string commandType,std::string commandName);
+    };
     std::vector<std::shared_ptr<character>> characters;
     std::unordered_map<int, std::shared_ptr<character>> idMap;
     std::unordered_map<std::string, std::shared_ptr<character>> nameMap;
     std::unordered_map<std::type_index, std::vector<std::shared_ptr<character>>> typeMap;
-    class command{
-        std::unordered_map<std::string,int> commandTypeMap = {{"NUM",1},{"NAME",2},{"TYPE",3}};
-        std::string commandType;    // 角色类型
-        std::string commandName;    // 角色名
-    public:
-        command(std::string commandType,std::string commandName);
-    };
     std::list<command> commandHistory;
-    void displayCharacterVector(int targetPage);
     int currentPage = 1;
     const int pageSize = 4;
     std::unique_ptr<std::vector<std::shared_ptr<character>>> characterVector;
+    void displayCharacterVector();
+    void searchByHistoryCommand(command c);
 public:
     template<typename T>
     void addCharacter(std::shared_ptr<T> specificCharacter);
