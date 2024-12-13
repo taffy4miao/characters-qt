@@ -18,7 +18,7 @@ void attackerToAll::levelUp(int targetLevel) {
 
 }
 
-void attackerToAll::displayInfo() {
+void attackerToAll::displayInfo(int targetWidget) {
 
 }
 

@@ -18,7 +18,7 @@ void assistantDebuff::levelUp(int targetLevel) {
 
 }
 
-void assistantDebuff::displayInfo() {
+void assistantDebuff::displayInfo(int targetWidget) {
 
 }
 

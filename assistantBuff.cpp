@@ -19,7 +19,7 @@ int assistantBuff::getType() {
     return assistantBuffNum;
 }
 
-void assistantBuff::displayInfo() {
+void assistantBuff::displayInfo(int targetWidget) {
 
 }
 

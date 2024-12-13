@@ -20,7 +20,7 @@ class attackerToOne : public attacker{
 public:
     attackerToOne(std::string name, int hp, int attackValue,std::string skillName,int skillValue);
     void levelUp(int targetLevel) override;
-    void displayInfo() override;
+    void displayInfo(int targetWidget) override;
     int getType() override;
 };
 

@@ -20,7 +20,7 @@ class assistantBuff : public assistant{
 public:
     assistantBuff(std::string name, int hp, int assistantValue, std::string skillName,int skillValue);
     void levelUp(int targetLevel) override;
-    void displayInfo() override;
+    void displayInfo(int targetWidget) override;
     int getType() override;
 };
 
