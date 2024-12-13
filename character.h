@@ -13,6 +13,7 @@
 #include <typeindex>
 #include <typeinfo>
 #include <stdexcept>
+#include <list>
 
 extern int currentNum;
 

@@ -26,7 +26,7 @@ private:
     public:
         command(std::string commandType,std::string commandName);
     };
-    std::vector<command> commandHistory;
+    std::list<command> commandHistory;
 public:
     template<typename T>
     void addCharacter(std::shared_ptr<T> specificCharacter);

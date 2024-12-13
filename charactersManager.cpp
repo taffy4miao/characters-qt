@@ -4,8 +4,6 @@
 
 #include "charactersManager.h"
 
-#include <utility>
-
 template<typename T>
 void charactersManager::addCharacter(std::shared_ptr<T> specificCharacter) {
     static_assert(std::is_base_of<character, T>::value, "T must be derived from Character");
