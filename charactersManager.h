@@ -22,7 +22,7 @@ private:
         std::string commandName;    // 请求内容
         command(std::string commandType,std::string commandName);
     };
-    std::vector<std::shared_ptr<character>> characters;
+    std::vector<std::shared_ptr<character>> characters; // 暂时没有用
     std::unordered_map<int, std::shared_ptr<character>> idMap;
     std::unordered_map<std::string, std::shared_ptr<character>> nameMap;
     std::unordered_map<std::type_index, std::vector<std::shared_ptr<character>>> typeMap;

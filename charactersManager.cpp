@@ -74,6 +74,7 @@ void charactersManager::displayCharacterVector() {
 }
 
 void charactersManager::searchByHistoryCommand(charactersManager::command c) {
+    //TODO:增加关闭弹窗的代码
     switch(c.commandTypeMap[c.commandType]){
         case 1: // Num
             findByNum(atoi(c.commandName.c_str()));
